@@ -1,4 +1,4 @@
-package src.core.ThucHanh2.BaiG;
+package Practice01.Bai08;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

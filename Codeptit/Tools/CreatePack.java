@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+// Chạy file sau đó nhập folder, sau folder là các class cần tạo
 public class CreatePack {
     static Scanner cin = new Scanner(System.in);
     public static void main(String[] args) {
@@ -23,7 +24,7 @@ public class CreatePack {
             writer.write("package " + packageName + ";\n\n");
             writer.write("public class " + className + " {\n");
             if (className.equals("Main")) {
-                writer.write("    public static void main(String[] args) {\n");
+                writer.write("    public static void main(String[] args) throws Exception{\n");
                 writer.write("    }\n");
             }
             writer.write("}\n");
