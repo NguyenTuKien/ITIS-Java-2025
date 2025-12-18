@@ -8,9 +8,6 @@ import java.io.IOException;
 public class CreatePack {
     static Scanner cin = new Scanner(System.in);
     public static void main(String[] args) {
-        if (!cin.hasNext()){
-            System.out.println("Hãy nhập tên Folder và tên các Class");
-        }
         String packageName = cin.next();
         File dir = new File(packageName);
         dir.mkdirs();
