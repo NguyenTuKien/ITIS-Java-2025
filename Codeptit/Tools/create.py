@@ -19,3 +19,5 @@ for cls in class_names:
         f.write(f"public class {cls} {{\n")
         f.write("}\n")
 
+# python ./Tools/create.py <TEN FOLDER> <TEN CAC CLASS>
+# vi du: python ./Tools/create.py J05081 Client Invoice Item
