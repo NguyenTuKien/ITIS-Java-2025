@@ -13,6 +13,8 @@
     * Ví dụ: `java A_plus/ZipLinux.java <<< "J05066"`
 > **Tip & Trick:**
 >> Dùng với `teminal` có thể tối ưu về thao tác hơn vì vẫn có thế ở trang code đang code dở mà vẫn có thể tạo package mới hoặc zip package khác.
+>>
+>> Terminal ghi lại lịch sử code của nó, nên bạn chỉ cần gõ code 1 lần, sau đó bấm phím đi lên ở bàn phím, ta có thể khôi phục các code đã dùng, sau đó chỉ cấn sửa các thông tin cần sửa.
 
 > **Các ngắt vào ra cho các bài nhập vô hạn Input:**
 >> Nếu bạn dùng Intellij, sẽ có 2 cơ chế chạy là `Run` và `Debug`. 
