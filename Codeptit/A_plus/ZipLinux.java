@@ -1,8 +1,7 @@
-package Tools;
+package A_plus;
 
 import java.io.IOException;
 import java.util.Scanner;
-// Chạy file sau đó nhập folder cần zip
 public class ZipLinux {
 
     static Scanner cin = new Scanner(System.in);
@@ -10,7 +9,8 @@ public class ZipLinux {
         String folder = cin.next();
         String zipFile = folder + "/" + folder + ".zip";
         ProcessBuilder pb = new ProcessBuilder("zip", "-r", zipFile, folder);
-//        pb.inheritIO();
+        pb.inheritIO();
         Process process = pb.start();
     }
 }
+

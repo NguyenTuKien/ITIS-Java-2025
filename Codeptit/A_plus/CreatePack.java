@@ -1,11 +1,10 @@
-package Tools;
+package A_plus;
 
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-// Chạy file sau đó nhập folder, sau folder là các class cần tạo
 public class CreatePack {
     static Scanner cin = new Scanner(System.in);
     public static void main(String[] args) {
