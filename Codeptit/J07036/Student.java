@@ -1,4 +1,4 @@
-package J07035;
+package J07036;
 
 public class Student implements Comparable<Student>{
     private String id, name, clss, email;
@@ -11,19 +11,22 @@ public class Student implements Comparable<Student>{
     }
 
     String normalize(String name){
-        String[] words = name.trim().split("\\s+");
         StringBuilder sb = new StringBuilder();
+        String[] words = name.split("\\s+");
         for (String word : words) {
-            if (word.length() > 0) {
-                sb.append(Character.toUpperCase(word.charAt(0)));
-                sb.append(word.substring(1).toLowerCase()).append(" ");
-            }
+            if (word.isEmpty()) continue;
+            word = word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase();
+            sb.append(word).append(" ");
         }
         return sb.toString().trim();
     }
 
     public String getId(){
         return id;
+    }
+
+    public String getClss(){
+        return clss;
     }
 
     public String getName(){
@@ -37,7 +40,7 @@ public class Student implements Comparable<Student>{
 
     @Override
     public String toString(){
-        return id + " " + name +  " " + clss;
+        return id + " " + name;
     }
 }
 

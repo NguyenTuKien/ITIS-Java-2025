@@ -8,58 +8,62 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int cntGD = 0, cntTP = 0, cntPP = 0;
-        int n = Integer.parseInt(sc.nextLine()); // Đọc cả dòng
+
+        // Đọc số lượng nhân viên
+        // Dùng sc.next() rồi sc.nextLine() cẩn thận hơn việc parse int ngay
+        int n = sc.nextInt();
+
         List<Staff> staffs = new ArrayList<>();
+        int gdCount = 0, tpCount = 0, ppCount = 0;
 
         for (int i = 0; i < n; i++) {
-            String line = sc.nextLine().trim();
-            String[] parts = line.split("\\s+", 2);
-            String code = parts[0];
-            String name = parts[1];
+            String inputCode = sc.next();
+            String name = sc.nextLine().trim();
 
-            String pos = code.substring(0, 2);
-            if (pos.equals("GD")) {
-                if (cntGD == 0) {
-                    cntGD++;
+            Staff s = new Staff(inputCode, name);
+            String currentPos = s.getPos();
+
+            // Xử lý logic chỉ tiêu (Quota)
+            if (currentPos.equals("GD")) {
+                if (gdCount < 1) {
+                    gdCount++;
                 } else {
-                    code = "NV" + code.substring(2);
-                    pos = "NV"; // Cập nhật lại pos
+                    s.setPos("NV");
                 }
-            } else if (pos.equals("TP")) {
-                if (cntTP < 3) {
-                    cntTP++;
+            } else if (currentPos.equals("TP")) {
+                if (tpCount < 3) {
+                    tpCount++;
                 } else {
-                    code = "NV" + code.substring(2);
-                    pos = "NV"; // Cập nhật lại pos
+                    s.setPos("NV");
                 }
-            } else if (pos.equals("PP")) {
-                if (cntPP < 3) {
-                    cntPP++;
+            } else if (currentPos.equals("PP")) {
+                if (ppCount < 3) {
+                    ppCount++;
                 } else {
-                    code = "NV" + code.substring(2);
-                    pos = "NV"; // Cập nhật lại pos
+                    s.setPos("NV");
                 }
             }
-            staffs.add(new Staff(code, name));
+
+            staffs.add(s);
         }
 
+        // Sắp xếp danh sách (Logic đã viết trong class Staff)
         Collections.sort(staffs);
 
-        int m = Integer.parseInt(sc.nextLine()); // Đọc cả dòng
-        for (int i = 0; i < m; i++) {
-            String keyword = sc.nextLine().trim().toLowerCase();
-            boolean found = false;
-            for (Staff staff : staffs) {
-                if (staff.getName().toLowerCase().contains(keyword)) {
-                    System.out.println(staff);
-                    found = true;
+        // Xử lý truy vấn tìm kiếm
+        int q = sc.nextInt();
+        sc.nextLine(); // Đọc bỏ dòng thừa sau số q
+
+        while (q-- > 0) {
+            String keyword = sc.nextLine().toLowerCase();
+
+            for (Staff s : staffs) {
+                if (s.getName().toLowerCase().contains(keyword)) {
+                    System.out.println(s);
                 }
             }
-            if (!found) {
-                System.out.println();
-            }
-            System.out.println(); // In dòng trống sau mỗi truy vấn
+            // Chỉ in ĐÚNG 1 dòng trống sau mỗi nhóm kết quả
+            System.out.println();
         }
     }
 }

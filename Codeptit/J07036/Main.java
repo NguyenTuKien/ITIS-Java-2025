@@ -1,4 +1,4 @@
-package J07035;
+package J07036;
 
 import java.io.File;
 import java.util.*;
@@ -25,7 +25,7 @@ public class Main {
         }
         n = sc3.nextInt();
         for (int i = 0; i < n; i++){
-            Score score = new Score(students.get(sc3.next().trim()), subjects.get(sc3.next().trim()), sc3.nextDouble());
+            Score score = new Score(students.get(sc3.next()), subjects.get(sc3.next()), sc3.nextDouble());
             String id = score.getId();
             if (!scores.containsKey(id)){
                 scores.put(id, new ArrayList<>());
@@ -35,11 +35,11 @@ public class Main {
         n  = sc3.nextInt();
         sc3.nextLine();
         while (n-- > 0){
-            String id = sc3.nextLine().trim();
+            String id = sc3.nextLine();
             try {
                 List<Score> scores1 = scores.get(id);
                 Collections.sort(scores1);
-                System.out.println("BANG DIEM MON " + subjects.get(id) + ":");
+                System.out.println("BANG DIEM lop " + id + ":");
                 for (Score s : scores1) {
                     System.out.println(s);
                 }

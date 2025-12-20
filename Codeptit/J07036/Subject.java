@@ -1,6 +1,6 @@
-package J07035;
+package J07036;
 
-public class Subject {
+public class Subject implements Comparable<Subject> {
     private String id, name;
     private int credit;
     public Subject(String id, String name, int credit) {
@@ -13,7 +13,12 @@ public class Subject {
     }
 
     @Override
+    public int compareTo(Subject o) {
+        return this.id.compareTo(o.id);
+    }
+
+    @Override
     public String toString() {
-        return name;
+        return id + " " + name;
     }
 }

@@ -1,6 +1,4 @@
-package J07035;
-
-import java.text.DecimalFormat;
+package J07036;
 
 public class Score implements Comparable<Score> {
     private String id;
@@ -12,7 +10,7 @@ public class Score implements Comparable<Score> {
         this.student = student;
         this.subject = subject;
         this.value = value;
-        this.id = subject.getId();
+        this.id = student.getClss();
     }
 
     public String getId(){
@@ -21,18 +19,17 @@ public class Score implements Comparable<Score> {
 
     @Override
     public String toString() {
-        String markStr;
-        if (value == (int) value) {
-            markStr = String.format("%d", (int) value);
-        } else {
-            markStr = String.format("%s", value);
+        String s;
+        if (value == (int) value){
+            s = String.valueOf((int) value);
         }
-        return student + " " + markStr;
+        else s = String.valueOf(value);
+        return student + " " + subject + " " + s;
     }
 
     @Override
     public int compareTo(Score o) {
-        if (this.value != o.value) return Double.compare(o.value, this.value);
+        if (subject.compareTo(o.subject) != 0) return subject.compareTo(o.subject);
         return this.student.compareTo(o.student);
     }
 

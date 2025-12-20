@@ -2,44 +2,45 @@ package J05066;
 
 public class Staff implements Comparable<Staff> {
     private String name;
-    private String code;
-    private String pos;
-    private String level;
-    private String id;
+    private String pos;       // Chức vụ (Có thể bị thay đổi thành NV)
+    private String salaryStr; // Chuỗi hệ số lương (để in ra, vd: "08")
+    private long salaryVal;   // Giá trị lương (để sắp xếp, vd: 8)
+    private String id;        // Số hiệu (vd: "001")
 
-    public Staff(String code, String name) {
-        this.code = code;
+    public Staff(String inputCode, String name) {
         this.name = name;
-        this.pos = code.substring(0, 2);
-        this.level = code.substring(2, 4);
-        this.id = code.substring(4);
+        // Cắt chuỗi: GD08001
+        this.pos = inputCode.substring(0, 2);       // GD
+        this.salaryStr = inputCode.substring(2, 4); // 08
+        this.id = inputCode.substring(4);           // 001
+
+        this.salaryVal = Long.parseLong(this.salaryStr);
+    }
+
+    public String getPos() {
+        return pos;
+    }
+
+    public void setPos(String pos) {
+        this.pos = pos;
     }
 
     public String getName() {
         return name;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public String getLevel() {
-        return level;
-    }
-
     @Override
     public int compareTo(Staff o) {
-        // So sánh theo level giảm dần
-        int levelCompare = Integer.parseInt(o.level) - Integer.parseInt(this.level);
-        if (levelCompare != 0) {
-            return levelCompare;
+        // 1. Sắp xếp hệ số lương giảm dần
+        if (this.salaryVal != o.salaryVal) {
+            return Long.compare(o.salaryVal, this.salaryVal);
         }
-        // Nếu level bằng nhau, so sánh theo id tăng dần
+        // 2. Sắp xếp số hiệu tăng dần
         return this.id.compareTo(o.id);
     }
 
     @Override
     public String toString() {
-        return name + " " + pos + " " + id + " " + level;
+        return name + " " + pos + " " + id + " " + salaryStr;
     }
 }
