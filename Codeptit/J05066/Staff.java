@@ -1,19 +1,25 @@
 package J05066;
 
-public class Staff implements Comparable<Staff>{
-    String name, pos, id, level;
-    Staff(String staffId, String name){
+public class Staff implements Comparable<Staff> {
+    private String name;
+    private String code;
+    private String pos;
+    private String level;
+    private String id;
+
+    public Staff(String code, String name) {
+        this.code = code;
         this.name = name;
-        this.pos = staffId.substring(0, 2);
-        this.level = staffId.substring(2, 4);
-        this.id = staffId.substring(4);
+        this.pos = code.substring(0, 2);
+        this.level = code.substring(2, 4);
+        this.id = code.substring(4);
     }
 
     public String getName() {
         return name;
     }
 
-    public String getId(){
+    public String getId() {
         return id;
     }
 
@@ -23,15 +29,17 @@ public class Staff implements Comparable<Staff>{
 
     @Override
     public int compareTo(Staff o) {
-        if (o.getLevel().equals(this.getLevel())) {
-            return this.getId().compareTo(o.getId());
+        // So sánh theo level giảm dần
+        int levelCompare = Integer.parseInt(o.level) - Integer.parseInt(this.level);
+        if (levelCompare != 0) {
+            return levelCompare;
         }
-        return o.getLevel().compareTo(this.getLevel());
+        // Nếu level bằng nhau, so sánh theo id tăng dần
+        return this.id.compareTo(o.id);
     }
 
     @Override
     public String toString() {
         return name + " " + pos + " " + id + " " + level;
     }
-
 }
