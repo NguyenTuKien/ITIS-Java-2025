@@ -1,7 +1,9 @@
+package A_plus;
+
 import java.io.*;
 import java.util.*;
 
-public class TaoInput {
+public class CreateInput {
     public static void main(String[] args) throws IOException {
         // Tạo list 1
         ArrayList<Integer> list1 = new ArrayList<>();
