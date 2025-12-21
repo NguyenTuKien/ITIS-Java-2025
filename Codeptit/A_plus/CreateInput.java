@@ -1,6 +1,6 @@
 package A_plus;
 
-import J07013.SinhVien;
+import danhsachsinhvien1.SinhVien;
 
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
