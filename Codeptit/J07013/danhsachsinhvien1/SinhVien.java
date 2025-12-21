@@ -1,4 +1,4 @@
-package J07013;
+package danhsachsinhvien1;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -6,8 +6,6 @@ import java.util.Date;
 import java.io.Serializable;
 
 public class SinhVien implements Serializable{
-    private static final long serialVersionUID = 1L;
-
     private String ma, ten, lop;
     private Date ngaysinh ;
     private float gpa;

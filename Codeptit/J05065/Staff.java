@@ -1,4 +1,4 @@
-package J05066;
+package J05065;
 
 public class Staff implements Comparable<Staff>{
     String name, pos, id, level;
@@ -21,6 +21,7 @@ public class Staff implements Comparable<Staff>{
         return level;
     }
 
+    public String getPos(){ return pos; }
     @Override
     public int compareTo(Staff o) {
         if (o.getLevel().equals(this.getLevel())) {

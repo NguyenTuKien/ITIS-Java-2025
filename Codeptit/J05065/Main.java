@@ -1,4 +1,4 @@
-package J05066;
+package J05065;
 
 import java.util.*;
 
@@ -15,20 +15,19 @@ public class Main {
             int id = Integer.parseInt(code.substring(4));
             String pos = code.substring(0, 2);
             String level = code.substring(2, 4);
-            if(pos.equals("GD") && cntGD > 0 && id == 1) cntGD--;
-            else if(pos.equals("TP") && cntTP > 0 && id <= 3) cntTP--;
-            else if(pos.equals("PP") && cntPP > 0 && id <= 3) cntPP--;
+            if(pos.equals("GD") && cntGD > 0) cntGD--;
+            else if(pos.equals("TP") && cntTP > 0) cntTP--;
+            else if(pos.equals("PP") && cntPP > 0) cntPP--;
             else pos = "NV";
             Staff staff = new Staff(pos, id, level, name);
             staffs.add(staff);
         }
         Collections.sort(staffs);
         int m = sc.nextInt();
-        sc.nextLine();
         while(m-- > 0){
-            String keyword = sc.nextLine();
+            String keyword = sc.next();
             for (Staff staff : staffs){
-                if (staff.getName().toLowerCase().contains(keyword.toLowerCase())){
+                if(staff.getPos().equals(keyword)){
                     System.out.println(staff);
                 }
             }
