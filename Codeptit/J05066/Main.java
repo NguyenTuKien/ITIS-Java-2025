@@ -5,7 +5,6 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        if (!sc.hasNext()) return;
         int n = sc.nextInt();
         int cntGD = 1, cntTP = 3, cntPP = 3;
         ArrayList<Staff> staffs = new ArrayList<>();
